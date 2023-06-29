@@ -126,7 +126,6 @@ int main ( int argc, char * argv[]){
         }
         
         if( word[0] == '+' && word[1] == 'n'){ //nuova partita
-            //strcmp(word,commands[NEWG]) == 0 ){ 
                 partite++;
                 tnt  = 0;
                 g=0;
@@ -175,8 +174,7 @@ int main ( int argc, char * argv[]){
                 head = game(head,root,word,answer, result, wrongP ,k,max_p_confronto,  &tnt, info, &g); 
                 
                 if(!g){
-                    freeList( head );
-                    //freeBST( head);      
+                    freeList( head );    
                     head = NULL;
                     tnt = 0;
                 }   
@@ -212,8 +210,6 @@ int main ( int argc, char * argv[]){
 
         } 
 
-
-        //da controllare: permette di non rifare la scanf se arriva un +nuova_partita controlla se imput finisce solo quando non si è in partita
         if( !(word[0]== '+' && word[1] == 'n') ){
             res = string_scanf(word, k);
         }
@@ -511,7 +507,6 @@ list_t * game( list_t * head, rbt_node * dizionario, char * word, char * answer,
                 
                 
                 printf("%s\n%d\n", result, pvalide);
-                //printf("%s\n31\n", result);
                 /* SE LE PAROLE SONO UGUALI STAMPO OK E TERMINA LA PARTITA*/
                 *i = *i + 1;
                 if(*i == max_p_confronto){
@@ -784,9 +779,8 @@ list_t * push (list_t * h, char * word, int k, ist_imp * info, char * answer, ch
             while(i < ALPH && valid){
                 
                 
-                //printf("lettera %c: ne ho %d, ne devo avere almeno %d\n",getRightChar(i),wIst[i], info[i].val);
+                
                 if( (wIst[i] > info[i].val && info[i].max && info[i].val >= 0) || (wIst[i] < info[i].val ) || (wIst[i] > 0 && info[i].val == -1) ){
-                   // printf("non va bene!\n");
                     valid = 0;
                 }
                 i++;
