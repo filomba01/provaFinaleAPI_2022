@@ -19,7 +19,6 @@
 typedef struct rbt_node_s{
 
     int8_t color;
-  //  int8_t valid;
     struct rbt_node_s * left;
     struct rbt_node_s * right;
     struct rbt_node_s * p;
@@ -118,7 +117,6 @@ int main ( int argc, char * argv[]){
             head = game(head,root,word,answer, result, wrongP,k,max_p_confronto,  &tnt, info, &g);   
             if(!g){
                 freeList( head );
-                //freeBST( head);      
                 head = NULL;
                 tnt = 0;
             }   
@@ -263,7 +261,6 @@ rbt_node * insertRB( rbt_node * root, char * word, int8_t  k){
             prev->left = new;
         }
                 
-        //FIXA LA FIXUP
         root = rbInsertFixup(root, new);  
   
     }
@@ -384,7 +381,6 @@ rbt_node * rightRotate (rbt_node * root, rbt_node * elem){
     return root;
 }
 
-// CAMBIA STRCMP
 rbt_node * searchRBT(rbt_node * root, char * word,  int k){
     int tmp;
     if(root != NULL){
@@ -738,8 +734,7 @@ int mystrncmp ( const char * s1, const char * s2 ,  int start,int k){
 //LISTE
 
 list_t * push (list_t * h, char * word, int k, ist_imp * info, char * answer, char * result , uint64_t * wrongP){
-
-	list_t * temp;
+    list_t * temp;
     int valid = 1;
     int i;
     int tmp;
